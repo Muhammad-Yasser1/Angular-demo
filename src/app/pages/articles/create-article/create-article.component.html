@@ -1,0 +1,85 @@
+<div class="container p-5 Create">
+  <form (submit)="createArticle(createArticleForm)" #createArticleForm="ngForm">
+    <h1 class="mb-3">Create a new Article:</h1>
+    <div class="form-group">
+      <label for="title"
+        >Title:
+        <small
+          *ngIf="
+            createArticleForm.controls.title?.invalid &&
+            (createArticleForm.controls.title?.touched || mouseOverCreateButton)
+          "
+          >Article title field is required
+        </small>
+      </label>
+      <input
+        type="text"
+        class="form-control"
+        name="title"
+        id="title"
+        placeholder="Write your article title here"
+        ngModel
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="content"
+        >Content:
+        <small
+          *ngIf="
+            createArticleForm.controls.content?.invalid &&
+            (createArticleForm.controls.content?.touched ||
+              mouseOverCreateButton)
+          "
+          >Article content field is required
+        </small></label
+      >
+      <textarea
+        class="form-control"
+        name="content"
+        id="content"
+        rows="10"
+        placeholder="Write your article content here"
+        ngModel
+        required
+      ></textarea>
+    </div>
+    <div class="form-group">
+      <label for="author"
+        >Author Name:
+        <small
+          *ngIf="
+            createArticleForm.controls.author?.invalid &&
+            (createArticleForm.controls.author?.touched ||
+              mouseOverCreateButton)
+          "
+          >Article author field is required
+        </small></label
+      >
+      <input
+        class="form-control"
+        name="author"
+        id="author"
+        placeholder="Write the author name here"
+        ngModel
+        required
+        minLength="2"
+      />
+    </div>
+    <span
+      (mouseenter)="mouseOverCreateButton = true"
+      (mouseleave)="mouseOverCreateButton = false"
+    >
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!createArticleForm.valid"
+      >
+        Create
+      </button>
+    </span>
+    <button (click)="handleCancel()" type="button" class="btn btn-dark">
+      Cancel
+    </button>
+  </form>
+</div>

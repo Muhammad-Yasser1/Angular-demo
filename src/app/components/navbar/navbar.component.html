@@ -1,0 +1,42 @@
+<nav
+  class="
+    AppNavbar
+    navbar
+    pb-0
+    navbar-expand
+    bg-transparent
+    navbar-light
+    border-bottom-1
+  "
+>
+  <a
+    [ngStyle]="{ display: adminMode ? 'flex' : 'none' }"
+    [routerLink]="['/articles/create']"
+    class="createbtn"
+  >
+    +
+  </a>
+  <a class="navbar-brand ml-sm-4 ml-1" routerLink='["/"]'> Mo Blog </a>
+  <div class="collapse navbar-collapse" id="collapsibleNavId">
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+      <li class="btn-group">
+        <button
+          type="button"
+          [ngClass]="[adminMode ? 'btn-primary btn' : 'btn-secondary btn']"
+          data-toggle="modal"
+          data-target="#modelId"
+          (click)="activateAdminMode()"
+        >
+          Admin Mode
+        </button>
+        <button
+          type="button"
+          [ngClass]="[adminMode ? 'btn-secondary btn' : 'btn-primary btn']"
+          (click)="deactivateAdminMode()"
+        >
+          Reader Mode
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>

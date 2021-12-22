@@ -1,0 +1,27 @@
+<div class="Blog row justify-content-around">
+  <div
+    *ngFor="let article of articles"
+    class="
+      card
+      text-white
+      bg-transparent
+      border-0
+      col-10 col-sm-8 col-md-6 col-lg-4
+      p-4
+    "
+  >
+    <a [routerLink]="['/articles/' + article.id + (adminMode ? '/edit' : '')]">
+      <img
+        class="card-img-top"
+        [src]="'../../../assets/images/' + article.image"
+        alt="Article"
+      />
+      <div class="title">{{ article.title }}</div>
+      <div class="overlay"></div>
+      <div class="author">
+        {{ article.updated_at || article.created_at }}
+        {{ article.author && "by " + article.author }}
+      </div>
+    </a>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="container p-5 Create">
+  <form #editArticleForm="ngForm">
+    <h1 class="mb-3">Edit this Article:</h1>
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input
+        type="text"
+        class="form-control"
+        name="title"
+        id="title"
+        aria-describedby="helpId"
+        placeholder="Write your article title here"
+        [ngModel]="articleData.title"
+      />
+    </div>
+    <div class="form-group">
+      <label for="content">Content:</label>
+      <textarea
+        class="form-control"
+        name="content"
+        id="content"
+        rows="10"
+        placeholder="Write your article content here"
+        [ngModel]="articleData.content"
+      ></textarea>
+    </div>
+    <div class="form-group">
+      <label for="author">Author Name:</label>
+      <input
+        class="form-control"
+        name="author"
+        id="author"
+        placeholder="Write your Name here"
+        [ngModel]="articleData.author"
+      />
+    </div>
+    <button
+      type="button"
+      class="btn btn-warning"
+      (click)="editArticle(editArticleForm)"
+    >
+      Edit
+    </button>
+    <button type="button" class="btn btn-danger" (click)="deleteArticle()">
+      Delete
+    </button>
+    <button type="button" class="btn btn-dark" (click)="handleCancel()">
+      Cancel
+    </button>
+  </form>
+</div>

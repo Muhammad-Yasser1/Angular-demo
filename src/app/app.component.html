@@ -1,0 +1,7 @@
+<main class="container-fluid px-md-5">
+  <app-navbar></app-navbar>
+  <hr class="mt-0 mb-3" />
+  <router-outlet></router-outlet>
+  <app-footer></app-footer>
+  <app-modal *ngIf="isAdminMode"></app-modal>
+</main>
